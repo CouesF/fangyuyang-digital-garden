@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/24/2406-obsidian-markdown/"}
+{"dg-publish":true,"permalink":"/24/2406-obsidian-markdown/","tags":["工具分享"],"created":"2024-06-01T21:42:51.487+08:00"}
 ---
 
 说明博客撰写要求：
