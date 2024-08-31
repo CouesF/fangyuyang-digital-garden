@@ -2,14 +2,12 @@
 {"dg-publish":true,"permalink":"/24-articles/frontiers/multimodal-dialogue-system/","tags":["Frontiers"],"created":"2024-07-04T19:38:38.542+08:00"}
 ---
 
-```toc
-```
 
 ## Moshi Chat
 ![Pasted image 20240704194706.png|700](/img/user/Attachment/Pasted%20image%2020240704194706.png)
 官网： https://moshi.chat/
 自媒体： https://mp.weixin.qq.com/s/iwH23jkt7rdZ7WwZ45Z9jg
-发布时间：2024.07.05
+发布时间：2024.07.04
 
 Latency: 160ms
 Open Source: ✅
