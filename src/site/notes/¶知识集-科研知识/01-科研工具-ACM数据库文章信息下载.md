@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-permalink":"research-knowledge/research-tools/acm-papers-extractor","permalink":"/research-knowledge/research-tools/acm-papers-extractor/","tags":["科研/科研工具"],"created":"2024-10-16T19:35:20.362+08:00"}
+{"dg-publish":true,"dg-permalink":"acm-papers-extractor","permalink":"/acm-papers-extractor/","tags":["科研/科研工具"],"created":"2024-10-16T19:35:20.362+08:00"}
 ---
 
 快速阅读一个期刊或者会议的所有标题与摘要，有助于拓宽知识面，打开思路，快速找到相关研究，找到自己研究的定位。本文介绍了一个 **ACM 论文摘要数据下载方法**，可以快速下载 ACM Digital Library（后面简称 ACM） 某一次会议或者某一期期刊（如 CHI、UIST、）的全部摘要信息至表格中，以便于后续的处理与分析。
