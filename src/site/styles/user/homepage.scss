@@ -1,13 +1,16 @@
 /* Landing page styles — academic clean design */
 
 /* ── Layout ─────────────────────────────────────────────────────────── */
+html:has(body.home-page) {
+  overflow-y: scroll;
+}
+
 body.home-page {
   max-width: 760px;
   margin: 0 auto;
   padding: 0 24px;
   font-size: 16px;
   line-height: 1.6;
-  overflow-x: clip !important;
 }
 
 /* ── Top nav ─────────────────────────────────────────────────────────── */
