@@ -171,8 +171,8 @@ body.home-page {
   gap: 8px;
 
   li {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     gap: 8px;
     font-size: 0.93rem;
     align-items: baseline;
@@ -188,10 +188,10 @@ body.home-page {
 }
 
 .home-edu-year {
-  margin-left: auto;
   color: var(--text-muted, #888);
   font-size: 0.85rem;
   white-space: nowrap;
+  text-align: right;
 }
 
 /* ── Featured project cards ──────────────────────────────────────────── */
@@ -365,7 +365,7 @@ body.home-page {
   gap: 8px;
   align-items: baseline;
   padding: 5px 0;
-  font-size: 0.87rem;
+  font-size: 0.8rem;
   color: var(--text-muted, #666);
   border-bottom: 1px solid var(--background-modifier-border, #eee);
 
