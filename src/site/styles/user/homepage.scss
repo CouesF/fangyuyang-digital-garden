@@ -2,7 +2,8 @@
 
 /* ── Layout ─────────────────────────────────────────────────────────── */
 html:has(body.home-page) {
-  overflow-y: scroll;
+  overflow: auto;
+  height: auto;
 }
 
 body.home-page {
