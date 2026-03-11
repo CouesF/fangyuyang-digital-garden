@@ -95,61 +95,38 @@ permalink: /
 <section class="home-section">
   <h2>Research &amp; Projects</h2>
 
-  {# Featured projects — full card #}
-  {% set featured = [] %}
-  {% for p in projects %}{% if p.featured %}{% set featured = (featured.push(p), featured) %}{% endif %}{% endfor %}
-  {% if featured.length %}
-    <div class="home-projects-featured">
-      {% for p in featured %}
-        <div class="home-project-card{% if p.img %} home-project-card--has-img{% endif %}">
-          <div class="home-project-body">
-            <div class="home-project-meta">
-              <span class="home-project-date">{{ p.date }}</span>
-              {% for tag in p.tags %}
-                <span class="home-project-tag">{{ tag }}</span>
-              {% endfor %}
-            </div>
-            <h3 class="home-project-title">{{ p.title }}</h3>
-            <p class="home-project-desc">{{ p.description }}</p>
-            <div class="home-project-links">
-              {% if p.links.paper %}<a href="{{ p.links.paper }}" target="_blank" rel="noopener">[Paper]</a>{% endif %}
-              {% if p.links.code %}<a href="{{ p.links.code }}" target="_blank" rel="noopener">[Code]</a>{% endif %}
-              {% if p.links.demo %}<a href="{{ p.links.demo }}" target="_blank" rel="noopener">[Demo]</a>{% endif %}
-              {% if p.links.note %}<a href="{{ p.links.note }}">[Notes]</a>{% endif %}
-            </div>
+  <div class="home-projects-featured">
+    {% for p in projects %}
+      <div class="home-project-card{% if p.img %} home-project-card--has-img{% endif %}">
+        <div class="home-project-body">
+          <div class="home-project-meta">
+            <span class="home-project-date">{{ p.year }}</span>
           </div>
-          {% if p.img %}
-            <img class="home-project-thumb" src="{{ p.img }}" alt="{{ p.title }}" loading="lazy" onerror="this.style.display='none'">
-          {% endif %}
-        </div>
-      {% endfor %}
-    </div>
-  {% endif %}
-
-  {# Other projects — compact list #}
-  {% set others = [] %}
-  {% for p in projects %}{% if not p.featured %}{% set others = (others.push(p), others) %}{% endif %}{% endfor %}
-  {% if others.length %}
-    <ul class="home-projects-list">
-      {% for p in others %}
-        <li class="home-project-item">
-          <span class="home-project-date">{{ p.date }}</span>
-          <span class="home-project-title-inline">
-            {% if p.links.note %}
-              <a href="{{ p.links.note }}">{{ p.title }}</a>
-            {% elif p.links.paper %}
-              <a href="{{ p.links.paper }}" target="_blank" rel="noopener">{{ p.title }}</a>
+          <h3 class="home-project-title">
+            {% if p.url %}
+              <a href="{{ p.url }}" {% if 'http' in p.url %}target="_blank" rel="noopener"{% endif %}>{{ p.title }}</a>
             {% else %}
               {{ p.title }}
             {% endif %}
-          </span>
-          {% for tag in p.tags %}
-            <span class="home-project-tag">{{ tag }}</span>
-          {% endfor %}
-          {% if p.links.code %}<a class="home-project-link-sm" href="{{ p.links.code }}" target="_blank" rel="noopener">[Code]</a>{% endif %}
-        </li>
-      {% endfor %}
-    </ul>
-  {% endif %}
+          </h3>
+          {% if p.authors %}
+            <p class="home-project-authors">
+              {% for a in p.authors %}{% if not loop.first %}, {% endif %}{% if a.bold %}<strong>{{ a.name }}</strong>{% else %}{{ a.name }}{% endif %}{% endfor %}
+            </p>
+          {% endif %}
+          {% if p.publisher %}<p class="home-project-publisher">{{ p.publisher }}</p>{% endif %}
+          {% if p.description %}<p class="home-project-desc">{{ p.description }}</p>{% endif %}
+          {% if p.url %}
+            <div class="home-project-links">
+              <a href="{{ p.url }}" {% if 'http' in p.url %}target="_blank" rel="noopener"{% endif %}>[Link]</a>
+            </div>
+          {% endif %}
+        </div>
+        {% if p.img %}
+          <img class="home-project-thumb" src="{{ p.img }}" alt="{{ p.title }}" loading="lazy" onerror="this.style.display='none'">
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
 </section>
 {% endif %}

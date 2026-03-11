@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <rect width="120" height="120" rx="4" fill="#f0fff4"/>
+  <!-- Robot body -->
+  <rect x="42" y="58" width="36" height="40" rx="4" fill="#5aaa7a"/>
+  <!-- Robot head -->
+  <rect x="46" y="34" width="28" height="24" rx="4" fill="#5aaa7a"/>
+  <!-- Antenna -->
+  <line x1="60" y1="34" x2="60" y2="24" stroke="#3d8a5e" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="22" r="3" fill="#3d8a5e"/>
+  <!-- Eyes -->
+  <rect x="50" y="40" width="7" height="5" rx="2" fill="#c8f0d8"/>
+  <rect x="63" y="40" width="7" height="5" rx="2" fill="#c8f0d8"/>
+  <!-- Mouth -->
+  <rect x="52" y="50" width="16" height="3" rx="1.5" fill="#3d8a5e"/>
+  <!-- Arms -->
+  <rect x="26" y="60" width="16" height="8" rx="4" fill="#3d8a5e"/>
+  <rect x="78" y="60" width="16" height="8" rx="4" fill="#3d8a5e"/>
+  <!-- Legs -->
+  <rect x="47" y="98" width="10" height="14" rx="4" fill="#3d8a5e"/>
+  <rect x="63" y="98" width="10" height="14" rx="4" fill="#3d8a5e"/>
+  <!-- Chest panel -->
+  <rect x="50" y="66" width="20" height="14" rx="2" fill="#3d8a5e"/>
+  <circle cx="55" cy="73" r="3" fill="#c8f0d8"/>
+  <circle cx="65" cy="73" r="3" fill="#c8f0d8"/>
+  <!-- Science Robotics badge -->
+  <rect x="6" y="6" width="34" height="14" rx="3" fill="#2e7d32"/>
+  <text x="23" y="16.5" font-family="sans-serif" font-size="6.5" font-weight="bold" fill="#fff" text-anchor="middle">Sci. Rob.</text>
+</svg>

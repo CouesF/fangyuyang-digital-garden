@@ -1,29 +1,39 @@
 [
   {
-    "title": "Project / Paper Title",
-    "description": "One or two sentences describing the project, method, or key finding.",
-    "tags": ["tag1", "tag2"],
-    "date": "2024-06",
-    "featured": true,
-    "img": "",
-    "links": {
-      "paper": "",
-      "code": "",
-      "demo": "",
-      "note": "/notes/your-project-note/"
-    }
+    "title": "Take the Dog to the Park: Quadruped Robot for Joint Attention Training with Autistic Children in Naturalistic Settings",
+    "authors": [
+      { "name": "Yuyang Fang", "bold": true },
+      { "name": "Yi Hu" },
+      { "name": "Jiayu Teng" },
+      { "name": "Yu Cai" },
+      { "name": "Jiayang Liu" },
+      { "name": "Feifan Xia" },
+      { "name": "Yilin Tang" },
+      { "name": "Liuqing Chen*" }
+    ],
+    "year": 2026,
+    "publisher": "CHI '26: Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems",
+    "img": "/img/projects/chi26-dog.svg",
+    "url": ""
   },
   {
-    "title": "Another Project",
-    "description": "Brief description of this project.",
-    "tags": ["tag1"],
-    "date": "2023-12",
-    "featured": false,
-    "links": {
-      "paper": "",
-      "code": "",
-      "demo": "",
-      "note": ""
-    }
+    "title": "Observing a robot peer's failures facilitates students' classroom learning",
+    "authors": [
+      { "name": "Liuqing Chen*" },
+      { "name": "Yu Cai" },
+      { "name": "Yuyang Fang", "bold": true },
+      { "name": "Ziqi Yang" },
+      { "name": "Duowei Xia" },
+      { "name": "Jiaxiang You" },
+      { "name": "Shuhong Xiao" },
+      { "name": "Yaxuan Song" },
+      { "name": "Lingwei Zhan" },
+      { "name": "Juanjuan Chen" },
+      { "name": "Lingyun Sun*" }
+    ],
+    "year": 2025,
+    "publisher": "Science Robotics",
+    "img": "/img/projects/scirobotics25.svg",
+    "url": "https://www.science.org/doi/full/10.1126/scirobotics.adu5257"
   }
 ]
