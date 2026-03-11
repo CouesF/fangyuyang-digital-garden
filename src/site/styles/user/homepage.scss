@@ -176,6 +176,27 @@ body.home-page {
   border: 1px solid var(--background-modifier-border, #ddd);
   border-radius: 4px;
   padding: 16px 20px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.home-project-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.home-project-thumb {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+  border: 1px solid var(--background-modifier-border, #ddd);
+
+  @media (max-width: 480px) {
+    display: none;
+  }
 }
 
 .home-project-meta {

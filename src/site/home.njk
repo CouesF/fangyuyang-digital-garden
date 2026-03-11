@@ -50,6 +50,38 @@ permalink: /
 </section>
 {% endif %}
 
+{# ── Updates / News ───────────────────────────────────────────────── #}
+{%- set allUpdates = [] -%}
+{% for u in updates %}
+  {%- set allUpdates = (allUpdates.push({ title: u.title, date: u.date, content: u.content, note: u.note }), allUpdates) -%}
+{% endfor %}
+{% for note in collections.dailyUpdates %}
+  {%- set allUpdates = (allUpdates.push({ title: note.data.title or note.fileSlug, date: note.date | isoDate | truncate(10, false, ''), content: note.data.description or "", note: note.url }), allUpdates) -%}
+{% endfor %}
+
+{% if allUpdates.length %}
+<section class="home-section home-updates-section">
+  <h2>Updates</h2>
+  <ul class="home-updates-list">
+    {% for u in allUpdates %}
+      <li class="home-update-item">
+        <span class="home-update-date">{{ u.date }}</span>
+        <span class="home-update-title">
+          {% if u.note %}
+            <a href="{{ u.note }}">{{ u.title }}</a>
+          {% else %}
+            {{ u.title }}
+          {% endif %}
+        </span>
+        {% if u.content %}
+          <span class="home-update-content">— {{ u.content }}</span>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+
 {# ── Research & Projects ──────────────────────────────────────────── #}
 {% if projects.length %}
 <section class="home-section">
@@ -61,21 +93,26 @@ permalink: /
   {% if featured.length %}
     <div class="home-projects-featured">
       {% for p in featured %}
-        <div class="home-project-card">
-          <div class="home-project-meta">
-            <span class="home-project-date">{{ p.date }}</span>
-            {% for tag in p.tags %}
-              <span class="home-project-tag">{{ tag }}</span>
-            {% endfor %}
+        <div class="home-project-card{% if p.img %} home-project-card--has-img{% endif %}">
+          <div class="home-project-body">
+            <div class="home-project-meta">
+              <span class="home-project-date">{{ p.date }}</span>
+              {% for tag in p.tags %}
+                <span class="home-project-tag">{{ tag }}</span>
+              {% endfor %}
+            </div>
+            <h3 class="home-project-title">{{ p.title }}</h3>
+            <p class="home-project-desc">{{ p.description }}</p>
+            <div class="home-project-links">
+              {% if p.links.paper %}<a href="{{ p.links.paper }}" target="_blank" rel="noopener">[Paper]</a>{% endif %}
+              {% if p.links.code %}<a href="{{ p.links.code }}" target="_blank" rel="noopener">[Code]</a>{% endif %}
+              {% if p.links.demo %}<a href="{{ p.links.demo }}" target="_blank" rel="noopener">[Demo]</a>{% endif %}
+              {% if p.links.note %}<a href="{{ p.links.note }}">[Notes]</a>{% endif %}
+            </div>
           </div>
-          <h3 class="home-project-title">{{ p.title }}</h3>
-          <p class="home-project-desc">{{ p.description }}</p>
-          <div class="home-project-links">
-            {% if p.links.paper %}<a href="{{ p.links.paper }}" target="_blank" rel="noopener">[Paper]</a>{% endif %}
-            {% if p.links.code %}<a href="{{ p.links.code }}" target="_blank" rel="noopener">[Code]</a>{% endif %}
-            {% if p.links.demo %}<a href="{{ p.links.demo }}" target="_blank" rel="noopener">[Demo]</a>{% endif %}
-            {% if p.links.note %}<a href="{{ p.links.note }}">[Notes]</a>{% endif %}
-          </div>
+          {% if p.img %}
+            <img class="home-project-thumb" src="{{ p.img }}" alt="{{ p.title }}" loading="lazy" onerror="this.style.display='none'">
+          {% endif %}
         </div>
       {% endfor %}
     </div>
@@ -109,38 +146,3 @@ permalink: /
 </section>
 {% endif %}
 
-{# ── Daily Updates ────────────────────────────────────────────────── #}
-{%- set allUpdates = [] -%}
-
-{# From updates.json #}
-{% for u in updates %}
-  {%- set allUpdates = (allUpdates.push({ title: u.title, date: u.date, content: u.content, note: u.note, dateSort: u.date }), allUpdates) -%}
-{% endfor %}
-
-{# From Obsidian notes tagged daily-update #}
-{% for note in collections.dailyUpdates %}
-  {%- set allUpdates = (allUpdates.push({ title: note.data.title or note.fileSlug, date: note.date | isoDate | truncate(10, false, '') , content: note.data.description or "", note: note.url, dateSort: note.date }), allUpdates) -%}
-{% endfor %}
-
-{% if allUpdates.length %}
-<section class="home-section home-updates-section">
-  <h2>Updates</h2>
-  <ul class="home-updates-list">
-    {% for u in allUpdates %}
-      <li class="home-update-item">
-        <span class="home-update-date">{{ u.date }}</span>
-        <span class="home-update-title">
-          {% if u.note %}
-            <a href="{{ u.note }}">{{ u.title }}</a>
-          {% else %}
-            {{ u.title }}
-          {% endif %}
-        </span>
-        {% if u.content %}
-          <span class="home-update-content">— {{ u.content }}</span>
-        {% endif %}
-      </li>
-    {% endfor %}
-  </ul>
-</section>
-{% endif %}
