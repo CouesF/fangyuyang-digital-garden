@@ -104,7 +104,7 @@ permalink: /
           </div>
           <h3 class="home-project-title">
             {% if p.url %}
-              <a href="{{ p.url }}" {% if p.url.startswith('http') %}target="_blank" rel="noopener"{% endif %}>{{ p.title }}</a>
+              <a href="{{ p.url }}" {% if 'http' in p.url %}target="_blank" rel="noopener"{% endif %}>{{ p.title }}</a>
             {% else %}
               {{ p.title }}
             {% endif %}
@@ -118,7 +118,7 @@ permalink: /
           {% if p.description %}<p class="home-project-desc">{{ p.description }}</p>{% endif %}
           {% if p.url %}
             <div class="home-project-links">
-              <a href="{{ p.url }}" {% if p.url.startswith('http') %}target="_blank" rel="noopener"{% endif %}>[Link]</a>
+              <a href="{{ p.url }}" {% if 'http' in p.url %}target="_blank" rel="noopener"{% endif %}>[Link]</a>
             </div>
           {% endif %}
         </div>
