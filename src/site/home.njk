@@ -34,22 +34,6 @@ permalink: /
   </div>
 </section>
 
-{# ── Education ────────────────────────────────────────────────────── #}
-{% if profile.education.length %}
-<section class="home-section">
-  <h2>Education</h2>
-  <ul class="home-edu-list">
-    {% for item in profile.education %}
-      <li>
-        <span class="home-edu-degree">{{ item.degree }}</span>
-        <span class="home-edu-school">{{ item.school }}</span>
-        <span class="home-edu-year">{{ item.year }}</span>
-      </li>
-    {% endfor %}
-  </ul>
-</section>
-{% endif %}
-
 {# ── Updates / News ───────────────────────────────────────────────── #}
 {%- set allUpdates = [] -%}
 {% for u in updates %}
@@ -61,7 +45,7 @@ permalink: /
 
 {% if allUpdates.length %}
 <section class="home-section home-updates-section">
-  <h2>Updates</h2>
+  <h2>News</h2>
   <ul class="home-updates-list">
     {% for u in allUpdates %}
       <li class="home-update-item">
@@ -146,3 +130,18 @@ permalink: /
 </section>
 {% endif %}
 
+{# ── Education ────────────────────────────────────────────────────── #}
+{% if profile.education.length %}
+<section class="home-section">
+  <h2>Education</h2>
+  <ul class="home-edu-list">
+    {% for item in profile.education %}
+      <li>
+        <span class="home-edu-degree">{{ item.degree }}</span>
+        <span class="home-edu-school">{{ item.school }}</span>
+        <span class="home-edu-year">{{ item.year }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
