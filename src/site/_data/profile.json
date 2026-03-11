@@ -1,25 +1,25 @@
 {
   "name": "Fang Yuyang",
   "title": "Research / 研究方向",
-  "bio": "Brief introduction about your research interests, current position, and what you work on. Keep it to 2-3 sentences.",
+  "bio": "I'm Yuyang, a PhD student at Zhejiang University. I've published research in human-computer interaction and social robotics, focused on building AI systems that help people communicate and learn.\n\nCurrently, I'm working on domestic robots and social robots for children with autism. Beyond my research, I'm passionate about finding and trying tools that can change how we live and work, from efficiency tools and embodied systems to wearable devices and agent-assisted trading.",
   "avatar": "/img/avatar.jpg",
   "links": {
-    "email": "your@email.com",
-    "github": "https://github.com/yourusername",
-    "scholar": "",
+    "email": "couesfang10@gmail.com",
+    "github": "https://github.com/CouesF",
+    "scholar": "https://scholar.google.com/citations?user=-aTHIuIAAAAJ",
     "cv": ""
   },
   "education": [
     {
-      "degree": "M.S. / Ph.D. in ...",
-      "school": "Your University",
-      "year": "2023–present"
+      "degree": "Ph.D. in Design",
+      "school": "Zhejiang University - College of Computer Science",
+      "year": "2024–present"
     },
     {
-      "degree": "B.Eng. in ...",
-      "school": "Your University",
-      "year": "2019–2023"
+      "degree": "B.Eng. in Industrial Design",
+      "school": "Zhejiang University - College of Computer Science",
+      "year": "2020–2024"
     }
   ],
-  "researchInterests": ["Topic A", "Topic B", "Topic C"]
+  "researchInterests": ["HRI", "Expressive Behavior Generation"]
 }
