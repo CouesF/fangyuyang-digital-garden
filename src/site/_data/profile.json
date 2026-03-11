@@ -1,0 +1,25 @@
+{
+  "name": "Fang Yuyang",
+  "title": "Research / 研究方向",
+  "bio": "Brief introduction about your research interests, current position, and what you work on. Keep it to 2-3 sentences.",
+  "avatar": "/img/avatar.jpg",
+  "links": {
+    "email": "your@email.com",
+    "github": "https://github.com/yourusername",
+    "scholar": "",
+    "cv": ""
+  },
+  "education": [
+    {
+      "degree": "M.S. / Ph.D. in ...",
+      "school": "Your University",
+      "year": "2023–present"
+    },
+    {
+      "degree": "B.Eng. in ...",
+      "school": "Your University",
+      "year": "2019–2023"
+    }
+  ],
+  "researchInterests": ["Topic A", "Topic B", "Topic C"]
+}
