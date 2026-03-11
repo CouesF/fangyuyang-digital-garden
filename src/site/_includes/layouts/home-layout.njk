@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="{{ meta.mainLanguage }}">
+  <head>
+    <meta charset="UTF-8">
+    <title>{{ profile.name }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/styles/digital-garden-base.css" rel="stylesheet">
+    {%- if meta.themeStyle %}
+      <link href="/styles/obsidian-base.css" rel="stylesheet">
+      <link href="{{ meta.themeStyle }}" rel="stylesheet">
+    {% else %}
+      <link href="/styles/style.css" rel="stylesheet">
+    {%- endif %}
+    <link href="/styles/custom-style.css" rel="stylesheet">
+    {%- for style in dynamics.styles -%}
+      <link href="{{ style }}" rel="stylesheet">
+    {%- endfor -%}
+    {% if meta.styleSettingsCss %}
+      <style>{{ meta.styleSettingsCss | safe }}</style>
+    {% endif %}
+    {% favicons './src/site/favicon.svg', appleIconBgColor='#123' %}
+  </head>
+  <body class="theme-{{ meta.baseTheme }} home-page">
+    <nav class="home-nav">
+      <span class="home-nav-name">{{ profile.name }}</span>
+      <div class="home-nav-links">
+        <a href="/garden/">Garden</a>
+        {% if profile.links.github %}<a href="{{ profile.links.github }}" target="_blank" rel="noopener">GitHub</a>{% endif %}
+        {% if profile.links.scholar %}<a href="{{ profile.links.scholar }}" target="_blank" rel="noopener">Scholar</a>{% endif %}
+        {% if profile.links.cv %}<a href="{{ profile.links.cv }}" target="_blank" rel="noopener">CV</a>{% endif %}
+      </div>
+    </nav>
+    <main class="home-main">
+      {{ content | safe }}
+    </main>
+    <footer class="home-footer">
+      {%include "components/user/common/afterContent/footer.njk"%}
+    </footer>
+  </body>
+</html>

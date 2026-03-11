@@ -1,0 +1,28 @@
+[
+  {
+    "title": "Project / Paper Title",
+    "description": "One or two sentences describing the project, method, or key finding.",
+    "tags": ["tag1", "tag2"],
+    "date": "2024-06",
+    "featured": true,
+    "links": {
+      "paper": "",
+      "code": "",
+      "demo": "",
+      "note": "/notes/your-project-note/"
+    }
+  },
+  {
+    "title": "Another Project",
+    "description": "Brief description of this project.",
+    "tags": ["tag1"],
+    "date": "2023-12",
+    "featured": false,
+    "links": {
+      "paper": "",
+      "code": "",
+      "demo": "",
+      "note": ""
+    }
+  }
+]
