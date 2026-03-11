@@ -31,6 +31,14 @@ permalink: /
         <span class="home-interests-label">Interests: </span>{{ profile.researchInterests | join(", ") }}
       </p>
     {% endif %}
+    {% if profile.status.length %}
+      <div class="home-status">
+        <span class="home-status-label">Currently:</span>
+        {% for s in profile.status %}
+          <span class="home-status-item">{{ s }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
   </div>
 </section>
 
@@ -60,6 +68,22 @@ permalink: /
         {% if u.content %}
           <span class="home-update-content">— {{ u.content }}</span>
         {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+{# ── Education ────────────────────────────────────────────────────── #}
+{% if profile.education.length %}
+<section class="home-section">
+  <h2>Education</h2>
+  <ul class="home-edu-list">
+    {% for item in profile.education %}
+      <li>
+        <span class="home-edu-degree">{{ item.degree }}</span>
+        <span class="home-edu-school">{{ item.school }}</span>
+        <span class="home-edu-year">{{ item.year }}</span>
       </li>
     {% endfor %}
   </ul>
@@ -127,21 +151,5 @@ permalink: /
       {% endfor %}
     </ul>
   {% endif %}
-</section>
-{% endif %}
-
-{# ── Education ────────────────────────────────────────────────────── #}
-{% if profile.education.length %}
-<section class="home-section">
-  <h2>Education</h2>
-  <ul class="home-edu-list">
-    {% for item in profile.education %}
-      <li>
-        <span class="home-edu-degree">{{ item.degree }}</span>
-        <span class="home-edu-school">{{ item.school }}</span>
-        <span class="home-edu-year">{{ item.year }}</span>
-      </li>
-    {% endfor %}
-  </ul>
 </section>
 {% endif %}

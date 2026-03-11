@@ -117,6 +117,31 @@ body.home-page {
   font-weight: 600;
 }
 
+/* ── Status badges ──────────────────────────────────────────────────── */
+.home-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.home-status-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted, #666);
+  margin-right: 2px;
+}
+
+.home-status-item {
+  font-size: 0.78rem;
+  color: var(--text-muted, #555);
+  background: var(--background-secondary, #f0f0f0);
+  padding: 2px 8px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
 /* ── Shared section heading ──────────────────────────────────────────── */
 .home-section {
   margin-bottom: 48px;
