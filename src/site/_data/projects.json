@@ -49,5 +49,19 @@
     "publisher": "UIST '25: Proceedings of the 38th Annual ACM Symposium on User Interface Software and Technology",
     "img": "",
     "url": "https://dl.acm.org/doi/10.1145/3746059.3747597"
+  },
+  {
+    "title": "SocializeChat: a GPT-based AAC Tool for Social Communication Through Eye Gazing",
+    "authors": [
+      { "name": "Yuyang Fang", "bold": true },
+      { "name": "Yunkai Xu" },
+      { "name": "Zhuyu Teng" },
+      { "name": "Zhaoqu Jiang" },
+      { "name": "Wei Xiang*" }
+    ],
+    "year": 2023,
+    "publisher": "UbiComp/ISWC '23 Adjunct: Adjunct Proceedings of the 2023 ACM International Joint Conference on Pervasive and Ubiquitous Computing & the 2023 ACM International Symposium on Wearable Computing",
+    "img": "",
+    "url": "https://dl.acm.org/doi/10.1145/3594739.3610705"
   }
 ]
