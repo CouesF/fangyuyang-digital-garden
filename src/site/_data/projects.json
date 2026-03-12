@@ -35,5 +35,19 @@
     "publisher": "Science Robotics",
     "img": "/img/projects/sr25-botfail.png",
     "url": "https://www.science.org/doi/full/10.1126/scirobotics.adu5257"
+  },
+  {
+    "title": "\"This is My Fault\", Really? Understanding Blind and Low-Vision People’s Perception of Hallucination in Large Vision Language Models",
+    "authors": [
+      { "name": "Yilin Tang" },
+      { "name": "Yuyang Fang", "bold": true },
+      { "name": "Tianle Wang" },
+      { "name": "Lingyun Sun" },
+      { "name": "Liuqing Chen*" }
+    ],
+    "year": 2025,
+    "publisher": "UIST '25: Proceedings of the 38th Annual ACM Symposium on User Interface Software and Technology",
+    "img": "",
+    "url": "https://dl.acm.org/doi/10.1145/3746059.3747597"
   }
 ]
