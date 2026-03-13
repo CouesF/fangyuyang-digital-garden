@@ -36,9 +36,11 @@
         {% for imp in dynamics.filetree.beforeTitle %}
             {% include imp %}
         {% endfor %}
-         <a href="/" style="text-decoration: none;">
-               <h1 style="text-align:center;">{{meta.siteName}}</h1>
-         </a>
+        <div class="filetree-header">
+          <a href="/" class="filetree-author-link">{{ profile.name }}</a>
+          <div class="filetree-header-divider"></div>
+          <span class="filetree-garden-label">{{ meta.siteName }}</span>
+        </div>
          {% for imp in dynamics.filetree.afterTitle %}
             {% include imp %}
         {% endfor %}

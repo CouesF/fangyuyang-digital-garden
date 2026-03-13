@@ -4,16 +4,13 @@
         {% for imp in dynamics.filetree.beforeTitle %}
             {% include imp %}
         {% endfor %}
-        <a href="/" style="text-decoration: none;">
-            <h1 style="margin: 15px !important;">{{meta.siteName}}</h1>
-        </a>
+        <div class="navbar-site-info">
+            <a href="/" class="navbar-author-link">{{ profile.name }}</a>
+            <span class="navbar-garden-label">{{ meta.siteName }}</span>
+        </div>
         {% for imp in dynamics.filetree.afterTitle %}
             {% include imp %}
         {% endfor %}
-        <div class="garden-nav-links">
-            <a href="/">Home</a>
-            <a href="/garden/">Garden</a>
-        </div>
     </div>
 
     {% if settings.dgEnableSearch === true%}
