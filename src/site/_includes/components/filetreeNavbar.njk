@@ -10,8 +10,12 @@
         {% for imp in dynamics.filetree.afterTitle %}
             {% include imp %}
         {% endfor %}
+        <div class="garden-nav-links">
+            <a href="/">Home</a>
+            <a href="/garden/">Garden</a>
+        </div>
     </div>
-    
+
     {% if settings.dgEnableSearch === true%}
         {% include "components/searchButton.njk" %}
     {%endif%}
