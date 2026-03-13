@@ -24,43 +24,66 @@
 
     <div
         x-data="{
-            showFilesMobile: false,
-            pinned: $persist(window.innerWidth >= 1400).as('sidebarPinned')
+            open: false,
+            pinned: $persist(window.innerWidth >= 1024).as('sidebarPinned')
         }"
         x-effect="pinned ? document.body.classList.add('sidebar-pinned') : document.body.classList.remove('sidebar-pinned')"
     >
 
-        <div x-show.important="!pinned" style="display: none;">
-            {%include "components/filetreeNavbar.njk"%}
-        </div>
+        <!-- Floating open button: visible only when sidebar is fully hidden -->
+        <button
+            class="sidebar-float-btn"
+            x-show="!pinned && !open"
+            x-transition
+            @click="open = true"
+            aria-label="Open navigation"
+            style="display:none;"
+        >
+            <i icon-name="panel-left-open"></i>
+        </button>
 
-        <div x-show="showFilesMobile && !pinned" @click="showFilesMobile = false" style="display:none;" class="fullpage-overlay"></div>
+        <!-- Fullpage overlay: dims content when sidebar is open in overlay mode -->
+        <div
+            x-show="open && !pinned"
+            x-transition.duration.200ms
+            @click="open = false"
+            style="display:none;"
+            class="fullpage-overlay"
+        ></div>
 
-      <nav class="filetree-sidebar" x-show.important="pinned || showFilesMobile" style="display: none;">
-        {% for imp in dynamics.filetree.beforeTitle %}
-            {% include imp %}
-        {% endfor %}
-        <div class="filetree-header">
-          <a href="/" class="filetree-author-link">{{ profile.name }}</a>
-          <button class="filetree-pin-btn" @click="pinned = !pinned" :title="pinned ? 'Unpin sidebar' : 'Pin sidebar'">
-            <i x-show="pinned" icon-name="pin-off"></i>
-            <i x-show="!pinned" style="display:none;" icon-name="pin"></i>
-          </button>
-          <div class="filetree-header-divider"></div>
-          <span class="filetree-garden-label">{{ meta.siteName }}</span>
-        </div>
-         {% for imp in dynamics.filetree.afterTitle %}
-            {% include imp %}
-        {% endfor %}
-        {% if settings.dgEnableSearch === true%}
-            <div style="display: flex; justify-content: center;">
-                {% include "components/searchButton.njk" %}
+        <!-- Sidebar: always in DOM, slides in/out via CSS transform -->
+        <nav class="filetree-sidebar" :class="{'sidebar-is-open': open || pinned}">
+            {% for imp in dynamics.filetree.beforeTitle %}
+                {% include imp %}
+            {% endfor %}
+            <div class="filetree-header">
+                <a href="/" class="filetree-author-link">{{ profile.name }}</a>
+                <!-- Pin button: pin (lock) when in overlay, unpin when docked -->
+                <button
+                    class="filetree-pin-btn"
+                    :class="{'is-pinned': pinned}"
+                    @click="pinned ? (pinned = false, open = false) : (pinned = true)"
+                    :title="pinned ? 'Unpin sidebar' : 'Pin sidebar'"
+                    aria-label="Toggle sidebar pin"
+                >
+                    <i class="pin-icon" icon-name="pin-off" x-show="pinned"></i>
+                    <i class="pin-icon" icon-name="pin" x-show="!pinned" style="display:none;"></i>
+                </button>
+                <div class="filetree-header-divider"></div>
+                <span class="filetree-garden-label">{{ meta.siteName }}</span>
             </div>
-        {%endif%}
-         <div class="folder" x-data="{isOpen: true}">
-               {%- for fileOrFolderName, fileOrFolder in filetree -%}
-                  {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
-               {%- endfor -%}
-         </div>
-      </nav>
+            {% for imp in dynamics.filetree.afterTitle %}
+                {% include imp %}
+            {% endfor %}
+            {% if settings.dgEnableSearch === true%}
+                <div style="display: flex; justify-content: center;">
+                    {% include "components/searchButton.njk" %}
+                </div>
+            {%endif%}
+            <div class="folder" x-data="{isOpen: true}">
+                {%- for fileOrFolderName, fileOrFolder in filetree -%}
+                    {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
+                {%- endfor -%}
+            </div>
+        </nav>
     </div>
