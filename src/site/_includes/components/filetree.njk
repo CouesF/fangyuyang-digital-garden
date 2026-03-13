@@ -21,23 +21,31 @@
         </div>
         {%endif%}
     {% endmacro %}
-    
-    <div x-init="isDesktop = (window.innerWidth>=1400) ? true: false;" 
-            x-on:resize.window="isDesktop = (window.innerWidth>=1400) ? true : false;" 
-            x-data="{isDesktop: true, showFilesMobile: false}">
 
-        <div x-show.important="!isDesktop" style="display: none;">
+    <div
+        x-data="{
+            showFilesMobile: false,
+            pinned: $persist(window.innerWidth >= 1400).as('sidebarPinned')
+        }"
+        x-effect="pinned ? document.body.classList.add('sidebar-pinned') : document.body.classList.remove('sidebar-pinned')"
+    >
+
+        <div x-show.important="!pinned" style="display: none;">
             {%include "components/filetreeNavbar.njk"%}
         </div>
-        
-        <div x-show="showFilesMobile && !isDesktop" @click="showFilesMobile = false" style="display:none;" class="fullpage-overlay"></div>
 
-      <nav class="filetree-sidebar"  x-show.important="isDesktop || showFilesMobile" style="display: none;">
+        <div x-show="showFilesMobile && !pinned" @click="showFilesMobile = false" style="display:none;" class="fullpage-overlay"></div>
+
+      <nav class="filetree-sidebar" x-show.important="pinned || showFilesMobile" style="display: none;">
         {% for imp in dynamics.filetree.beforeTitle %}
             {% include imp %}
         {% endfor %}
         <div class="filetree-header">
           <a href="/" class="filetree-author-link">{{ profile.name }}</a>
+          <button class="filetree-pin-btn" @click="pinned = !pinned" :title="pinned ? 'Unpin sidebar' : 'Pin sidebar'">
+            <i x-show="pinned" icon-name="pin-off"></i>
+            <i x-show="!pinned" style="display:none;" icon-name="pin"></i>
+          </button>
           <div class="filetree-header-divider"></div>
           <span class="filetree-garden-label">{{ meta.siteName }}</span>
         </div>
