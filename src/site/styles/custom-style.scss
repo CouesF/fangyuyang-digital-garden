@@ -34,19 +34,12 @@
 }
 
 .note-tree-toggle {
-  font-size: 0.8rem;
-  color: var(--text-muted, #888);
   background: none;
-  border: 1px solid var(--background-modifier-border, #ddd);
-  border-radius: 4px;
+  border: none;
+  color: transparent;
+  cursor: default;
   padding: 2px 8px;
-  cursor: pointer;
-  line-height: 1.6;
-
-  &:hover {
-    color: var(--text-accent, #1a6bf1);
-    border-color: var(--text-accent, #1a6bf1);
-  }
+  user-select: none;
 }
 
 /* Garden page top-nav links (Home / Garden) */
