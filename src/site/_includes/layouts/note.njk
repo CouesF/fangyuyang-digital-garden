@@ -15,12 +15,14 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
   </head>
   <body class="theme-{{meta.baseTheme}} markdown-preview-view markdown-rendered markdown-preview-section {{meta.bodyClasses}}">
     {%include "components/notegrowthhistory.njk"%}
-    
-    {% if settings.dgShowFileTree !== true %}
-      {%include "components/navbar.njk"%}
-    {%else%}
-      {%include "components/filetree.njk"%}
-    {% endif %}
+
+    <div id="note-sidebar">
+      {% if settings.dgShowFileTree !== true %}
+        {%include "components/navbar.njk"%}
+      {%else%}
+        {%include "components/filetree.njk"%}
+      {% endif %}
+    </div>
 
     {% if settings.dgEnableSearch === true %}
       {%include "components/searchContainer.njk"%}
@@ -28,6 +30,12 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
 
     <main class="content cm-s-obsidian {{contentClasses}}">
       <header>
+        <div class="note-top-bar">
+          <a href="/garden/" class="note-back-btn">← Garden</a>
+          {% if settings.dgShowFileTree === true %}
+            <button class="note-tree-toggle" id="note-tree-toggle-btn" onclick="toggleNoteTree()">Hide Tree</button>
+          {% endif %}
+        </div>
         {% if settings.dgShowInlineTitle === true %}
           <h1 data-note-icon="{% if noteIcon %}{{noteIcon}}{% else %}{{meta.noteIconsSettings.default}}{% endif %}">{% if title %}{{ title }}{% else %}{{ page.fileSlug }}{% endif %}</h1>
         {% endif %}
@@ -92,5 +100,26 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
       {% include imp %}
     {% endfor %}
     {%include "components/lucideIcons.njk"%}
+    <script>
+      (function () {
+        var STORAGE_KEY = 'noteTreeHidden';
+        var sidebar = document.getElementById('note-sidebar');
+        var btn = document.getElementById('note-tree-toggle-btn');
+
+        function applyState(hidden) {
+          if (sidebar) sidebar.style.display = hidden ? 'none' : '';
+          if (btn) btn.textContent = hidden ? 'Show Tree' : 'Hide Tree';
+        }
+
+        applyState(localStorage.getItem(STORAGE_KEY) === 'true');
+
+        window.toggleNoteTree = function () {
+          var isHidden = sidebar && sidebar.style.display === 'none';
+          var newHidden = !isHidden;
+          localStorage.setItem(STORAGE_KEY, newHidden ? 'true' : 'false');
+          applyState(newHidden);
+        };
+      })();
+    </script>
   </body>
 </html>
