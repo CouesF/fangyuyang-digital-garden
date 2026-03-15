@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-permalink":"superpure-proxy","permalink":"/superpure-proxy/","tags":["Network"],"created":"2026-02-05T23:37:54.536+08:00"}
+{"dg-publish":true,"dg-permalink":"2026/02/superpure-proxy","permalink":"/2026/02/superpure-proxy/","tags":["Network"],"created":"2026-02-05T23:37:54.536+08:00"}
 ---
 
 
