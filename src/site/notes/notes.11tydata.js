@@ -13,7 +13,7 @@ module.exports = {
     },
     permalink: (data) => {
       if (data.tags.indexOf("gardenEntry") != -1) {
-        return "/garden/";
+        return "/garden-tree/";
       }
       return data.permalink || undefined;
     },
