@@ -14,6 +14,7 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
     {% endfor %}
   </head>
   <body class="theme-{{meta.baseTheme}} markdown-preview-view markdown-rendered markdown-preview-section {{meta.bodyClasses}}">
+    <span id="note-top"></span>
     {%include "components/notegrowthhistory.njk"%}
 
     <div id="note-sidebar">
@@ -83,7 +84,7 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
         {% include imp %}
       {% endfor %}
       <div class="note-back-to-top">
-        <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ Back to top</a>
+        <a href="#note-top">↑ Back to top</a>
       </div>
     </main>
 
