@@ -16,6 +16,23 @@
   }
 }
 
+.note-back-to-top {
+  margin-top: 48px;
+  padding-top: 16px;
+  border-top: 1px solid var(--background-modifier-border, #eee);
+  text-align: center;
+
+  a {
+    font-size: 0.83rem;
+    color: var(--text-muted, #aaa);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--text-accent, #1a6bf1);
+    }
+  }
+}
+
 .note-tree-toggle {
   font-size: 0.8rem;
   color: var(--text-muted, #888);

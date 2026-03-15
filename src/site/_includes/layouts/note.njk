@@ -82,6 +82,9 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
       {% for imp in dynamics.notes.afterContent %}
         {% include imp %}
       {% endfor %}
+      <div class="note-back-to-top">
+        <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ Back to top</a>
+      </div>
     </main>
 
     {% if settings.dgShowBacklinks === true or settings.dgShowLocalGraph === true or settings.dgShowToc === true%}
@@ -111,7 +114,7 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
           if (btn) btn.textContent = hidden ? 'Show Tree' : 'Hide Tree';
         }
 
-        applyState(localStorage.getItem(STORAGE_KEY) === 'true');
+        applyState(localStorage.getItem(STORAGE_KEY) !== 'false');
 
         window.toggleNoteTree = function () {
           var isHidden = sidebar && sidebar.style.display === 'none';
