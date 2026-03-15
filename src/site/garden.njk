@@ -1,0 +1,33 @@
+---
+layout: layouts/home-layout.njk
+permalink: /garden/
+title: Garden
+---
+
+<section class="home-section garden-blog-section">
+  <h2>Garden</h2>
+  <ul class="garden-blog-list">
+    {% for note in collections.gardenNotes %}
+      <li class="garden-blog-item">
+        <span class="garden-blog-date">
+          {%- if note.data.created -%}
+            {{ note.data.created | truncate(10, true, '') }}
+          {%- else -%}
+            {{ note.date | isoDate | truncate(10, true, '') }}
+          {%- endif -%}
+        </span>
+        <a class="garden-blog-title" href="{{ note.url }}">{{ note.data.title or note.fileSlug }}</a>
+        {% if note.data.tags %}
+          <div class="garden-blog-tags">
+            {% for tag in note.data.tags %}
+              {% if tag != 'note' and tag != 'gardenEntry' and tag != 'daily-update' %}
+                <span class="garden-blog-tag">#{{ tag }}</span>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+  <p class="garden-tree-link"><a href="/garden-tree/">Switch to tree view →</a></p>
+</section>

@@ -405,6 +405,92 @@ body.home-page {
   color: var(--text-muted, #888);
 }
 
+/* ── Garden blog list ────────────────────────────────────────────────── */
+.garden-blog-section {
+  h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-bottom: 1px solid var(--background-modifier-border, #ddd);
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+    color: var(--text-normal, #222);
+  }
+}
+
+.garden-blog-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.garden-blog-item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  align-items: baseline;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--background-modifier-border, #eee);
+  font-size: 0.93rem;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.garden-blog-date {
+  white-space: nowrap;
+  font-size: 0.82rem;
+  color: var(--text-faint, #aaa);
+  min-width: 86px;
+  flex-shrink: 0;
+}
+
+.garden-blog-title {
+  color: var(--text-normal, #222);
+  text-decoration: none;
+  font-weight: 500;
+  flex: 1;
+  min-width: 0;
+
+  &:hover {
+    color: var(--text-accent, #1a6bf1);
+  }
+}
+
+.garden-blog-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  width: 100%;
+  padding-left: calc(86px + 12px);
+}
+
+.garden-blog-tag {
+  font-size: 0.75rem;
+  color: var(--text-muted, #777);
+  background: var(--background-secondary, #f4f4f4);
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+
+.garden-tree-link {
+  margin-top: 20px;
+  font-size: 0.85rem;
+
+  a {
+    color: var(--text-muted, #888);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--text-accent, #1a6bf1);
+    }
+  }
+}
+
 /* ── Dark theme adjustments ──────────────────────────────────────────── */
 body.theme-dark.home-page {
   .home-project-tag {

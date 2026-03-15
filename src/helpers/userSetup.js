@@ -10,6 +10,24 @@ function userEleventySetup(eleventyConfig) {
       .sort((a, b) => b.date - a.date)
       .slice(0, 10);
   });
+
+  // All published notes sorted by created date (newest first), excluding gardenEntry
+  eleventyConfig.addCollection("gardenNotes", function (collectionApi) {
+    return collectionApi
+      .getAll()
+      .filter((item) => {
+        return (
+          item.data["dg-publish"] === true &&
+          Array.isArray(item.data.tags) &&
+          item.data.tags.indexOf("gardenEntry") === -1
+        );
+      })
+      .sort((a, b) => {
+        const dateA = new Date(a.data.created || a.date);
+        const dateB = new Date(b.data.created || b.date);
+        return dateB - dateA;
+      });
+  });
 }
 exports.userMarkdownSetup = userMarkdownSetup;
 exports.userEleventySetup = userEleventySetup;
