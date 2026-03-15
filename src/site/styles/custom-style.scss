@@ -33,24 +33,6 @@
   }
 }
 
-.note-tree-toggle {
-  appearance: none;
-  background: none;
-  border: none;
-  box-shadow: none;
-  outline: none;
-  color: transparent;
-  cursor: default;
-  padding: 2px 8px;
-  user-select: none;
-
-  &:focus, &:active, &:hover {
-    background: none;
-    border: none;
-    box-shadow: none;
-    outline: none;
-  }
-}
 
 /* Garden page top-nav links (Home / Garden) */
 .garden-nav-links {

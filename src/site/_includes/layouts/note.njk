@@ -34,7 +34,7 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
         <div class="note-top-bar">
           <a href="/garden/" class="note-back-btn">← Garden</a>
           {% if settings.dgShowFileTree === true %}
-            <button class="note-tree-toggle" id="note-tree-toggle-btn" onclick="toggleNoteTree()">Hide Tree</button>
+            <button class="note-tree-toggle" id="note-tree-toggle-btn" onclick="toggleNoteTree()" style="background:none;box-shadow:none;border:none;outline:none;color:transparent;cursor:default;padding:0;appearance:none;">Hide Tree</button>
           {% endif %}
         </div>
         {% if settings.dgShowInlineTitle === true %}
